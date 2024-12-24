@@ -1,5 +1,5 @@
 # To run:
 
 ```
- npx vite
+ npm test
 ```
