@@ -33,12 +33,6 @@ scene.add(gridhelper);
 
 camera.position.set(0, 2, 5);
 
-const boxGeo = new THREE.BoxGeometry();
-const boxMaterial = new THREE.MeshBasicMaterial({color: 'pink'});
-const box = new THREE.Mesh(boxGeo, boxMaterial);
-box.position.set(1, 1, 1);
-box.castShadow = true;
-scene.add(box);
 
 const planeGeo = new THREE.PlaneGeometry(30, 30);
 const planeMaterial = new THREE.MeshBasicMaterial({color: 'white', side: THREE.DoubleSide});
@@ -47,17 +41,6 @@ plane.rotation.x = -0.5 * Math.PI;
 plane.receiveShadow = true;
 scene.add(plane);
 
-const guid = new dat.GUI();
-
-const options = {
-    boxColor: '#ffea00'
-  
-};
-
-guid.addColor(options, 'boxColor').onChange(function(e){
-
-    box.material.color.set(e);
-});
 
 
 const directionLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
@@ -72,9 +55,9 @@ scene.add(dLightHelper);
 const stats = new Stats()
 document.body.appendChild(stats.dom)
 
+
 function animate(){
-    box.rotation.x += 0.01;
-    box.rotation.y += 0.01;
+
     renderer.render(scene, camera)
 }
 
